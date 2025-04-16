@@ -13,13 +13,13 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Build Docker Image
-      run: docker build . --file Dockerfile --tag my-portfolio
+      run: docker build . --file Dockerfile --tag myportfolio
 
     - name: Create output directory
       run: mkdir -p ./output
 
     - name: Run Docker Container to extract static site
-      run: docker run --rm -v ${{ github.workspace }}/output:/app/output my-portfolio
+      run: docker run --rm -v ${{ github.workspace }}/output:/app/output myportfolio
 
     - name: Show build output
       run: ls -R ./output
